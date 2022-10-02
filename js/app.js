@@ -7,7 +7,11 @@ const beepPan = beepContext.createStereoPanner();
 source.connect(beepPan);
 beepPan.connect(beepContext.destination);
 
+const audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+var bass_test_running = false;
 
+
+/* Module: Stereo Test */
 function play_beep(direction = 'both') {
     if      ( direction == 'both'  ) { beepPan.pan.value =  0; }
     else if ( direction == 'left'  ) { beepPan.pan.value = -1; }
@@ -16,6 +20,64 @@ function play_beep(direction = 'both') {
     else { console.error('Inavlid Audio Direction: ' + direction); return; }
 
     beepAudio.play();
+}
+
+/* Module: Bass Test */
+// https://stackoverflow.com/questions/39200994/how-to-play-a-specific-frequency-with-javascript
+function playFreq(frequency, duration, counters) {
+    var oscillator = audioCtx.createOscillator();
+  
+    oscillator.type = 'sine';
+    oscillator.frequency.value = frequency; // value in hertz
+    oscillator.connect(audioCtx.destination);
+    oscillator.start();
+  
+    setTimeout(
+        function() {
+            oscillator.stop();
+            console.log(frequency);
+            if (frequency > 0 && bass_test_running) {
+                var new_freq = frequency - 5;
+
+                for (var j = 0; j < counters.length; j++) {
+                    counters[j].innerText = new_freq.toString() + ' Hz';
+                }
+
+                playFreq(new_freq, duration, counters);
+            } else {
+                bass_test_running = false;
+            }
+        }, duration
+    );
+}
+
+function start_bass_test() {
+    var start_btns = document.getElementsByClassName('freq_start');
+
+    if (bass_test_running) {
+        bass_test_running = false;
+
+        for (var j = 0; j < start_btns.length; j++) {
+            start_btns[j].innerText = 'Start Test';
+        }
+
+        return;
+    }
+
+    bass_test_running = true;
+
+    for (var j = 0; j < start_btns.length; j++) {
+        start_btns[j].innerText = 'Stop Test';
+    }
+
+    var counters = document.getElementsByClassName('freq_counter');
+    const start_freq = 600;
+
+    for (var j = 0; j < counters.length; j++) {
+        counters[j].innerText = start_freq.toString() + ' Hz';
+    }
+
+    playFreq(start_freq, 500, counters);
 }
 
 /* ----- Creating Page ----- */

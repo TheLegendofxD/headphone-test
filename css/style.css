@@ -79,6 +79,22 @@ nav .tab_link:focus {
     color: var(--red);
 }
 
+span.centered,
+p.centered    {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+span.small {
+    font-size: 1.2rem;
+}
+
+span.large,
+p.large {
+    font-size: 4rem;
+}
+
 .content {
     margin-top: 1rem;
     display: flex;
@@ -182,20 +198,22 @@ body > .content:last-of-type {
     padding-bottom: 1rem;
 }
 
-/* Stereo test */
-.stereo_test_container {
+/* Buttons */
+.btns_container {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.stereo_test_container > .stereo_test {
+.btns_container > .btns {
+    display: flex;
     width: 100%;
     max-width: 900px;
     white-space: nowrap;
+    justify-content: center;
 }
 
-.stereo_test_container > .stereo_test > a {
+.btns_container > .btns > a {
     display: inline-flex;
     height: 4rem;
     min-width: 33%;
@@ -209,6 +227,6 @@ body > .content:last-of-type {
     color: var(--white);
 }
 
-.stereo_test_container > .stereo_test > a:last-of-type {
+.btns_container > .btns > a:last-of-type {
     margin-right: 0;
 }
