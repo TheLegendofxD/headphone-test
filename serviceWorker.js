@@ -1,21 +1,21 @@
-const cache_name = "ht-cache-v1"
+const cache_name = "ht-cache-v1.1"
 const assets = [
-  "/",
-  "/index.html",
-  "/css/style.css",
-  "/js/app.js",
-  "/js/feather.min.js",
-  "/serviceWorker.js",
-  "/assets/beep.ogg",
-  "/assets/beep.mp3",
-  "/assets/icon72.png",
-  "/assets/icon96.png",
-  "/assets/icon128.png",
-  "/assets/icon144.png",
-  "/assets/icon152.png",
-  "/assets/icon192.png",
-  "/assets/icon384.png",
-  "/assets/icon512.png",
+  "https://thelegendofxd.github.io/headphone-test/",
+  "https://thelegendofxd.github.io/headphone-test/index.html",
+  "https://thelegendofxd.github.io/headphone-test/css/style.css",
+  "https://thelegendofxd.github.io/headphone-test/js/app.js",
+  "https://thelegendofxd.github.io/headphone-test/js/feather.min.js",
+  "https://thelegendofxd.github.io/headphone-test/serviceWorker.js",
+  "https://thelegendofxd.github.io/headphone-test/assets/beep.ogg",
+  "https://thelegendofxd.github.io/headphone-test/assets/beep.mp3",
+  "https://thelegendofxd.github.io/headphone-test/assets/icon72.png",
+  "https://thelegendofxd.github.io/headphone-test/assets/icon96.png",
+  "https://thelegendofxd.github.io/headphone-test/assets/icon128.png",
+  "https://thelegendofxd.github.io/headphone-test/assets/icon144.png",
+  "https://thelegendofxd.github.io/headphone-test/assets/icon152.png",
+  "https://thelegendofxd.github.io/headphone-test/assets/icon192.png",
+  "https://thelegendofxd.github.io/headphone-test/assets/icon384.png",
+  "https://thelegendofxd.github.io/headphone-test/assets/icon512.png",
 ]
 
 self.addEventListener("install", installEvent => {

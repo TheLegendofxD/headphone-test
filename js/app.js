@@ -213,7 +213,6 @@ function move_module(display_id, type_id, action) {
 render_modules();
 
 /* Register ServiveWorker */
-/*
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
         navigator.serviceWorker
@@ -222,4 +221,3 @@ if ("serviceWorker" in navigator) {
         .catch(err => console.log("service worker not registered", err))
     })
 }
-*/
