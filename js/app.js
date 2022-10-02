@@ -39,8 +39,12 @@ function playFreq(frequency, duration, counters) {
             if (frequency > 0 && bass_test_running) {
                 var new_freq = frequency - 5;
 
-                for (var j = 0; j < counters.length; j++) {
-                    counters[j].innerText = new_freq.toString() + ' Hz';
+                for (var j = 0; j < counters[0].length; j++) {
+                    if (counters[1]) {
+                        counters[0][j].value = new_freq.toString();
+                    } else {
+                        counters[0][j].innerText = new_freq.toString() + ' Hz';
+                    }
                 }
 
                 playFreq(new_freq, duration, counters);
@@ -51,39 +55,77 @@ function playFreq(frequency, duration, counters) {
     );
 }
 
-function start_bass_test() {
+function start_bass_test(advanced=false) {
     var start_btns = document.getElementsByClassName('freq_start');
 
     if (bass_test_running) {
         bass_test_running = false;
 
         for (var j = 0; j < start_btns.length; j++) {
-            start_btns[j].innerText = 'Start Test';
+            start_btns[j].innerHTML = '<i data-feather="play" class="icon_up"></i>&nbsp;Start Test';
         }
-
+        feather.replace();
         return;
     }
 
     bass_test_running = true;
 
     for (var j = 0; j < start_btns.length; j++) {
-        start_btns[j].innerText = 'Stop Test';
+        start_btns[j].innerHTML = '<i data-feather="square" class="icon_up"></i>&nbsp;Stop Test';
     }
+    feather.replace();
 
-    var counters = document.getElementsByClassName('freq_counter');
-    const start_freq = 600;
+    var counters;
+    if (advanced) { counters = [document.getElementsByClassName('freq_counter_num'), true]; }
+    else          { counters = [document.getElementsByClassName('freq_counter'), false]; }
+    
 
-    for (var j = 0; j < counters.length; j++) {
-        counters[j].innerText = start_freq.toString() + ' Hz';
+    var start_freq = 600;
+
+    for (var j = 0; j < counters[0].length; j++) {
+        if (counters[1]) {
+            counters[0][j].value = start_freq.toString();
+        } else {
+            counters[0][j].innerText = start_freq.toString() + ' Hz';
+        }
     }
 
     playFreq(start_freq, 500, counters);
 }
 
+function enforceMinMax(el, selector){
+    var new_val = -1;
+    if(el.value != ""){
+        if(parseInt(el.value) < parseInt(el.min)){
+            new_val = el.min;
+        }
+        if(parseInt(el.value) > parseInt(el.max)){
+            new_val = el.max;
+        }
+        if(el.value.startsWith('0') || el.value.includes('.') || el.value.includes(',')) {
+            new_val = parseInt(el.value).toString();
+        }
+
+        if (new_val == -1) {
+            new_val = el.value;
+        }
+        
+    } else {new_val = el.min;}
+
+    var other_elements = document.querySelectorAll(selector);
+
+    for (var i=0; i<other_elements.length;i++) {
+        other_elements[i].value = new_val;
+    }
+}
+  
+
 /* ----- Creating Page ----- */
 var modules = [
     document.getElementById('template_stereo_test'),
-    document.getElementById('template_bass_test')
+    document.getElementById('template_bass_test'),
+    document.getElementById('template_bass_test_adv'),
+    document.getElementById('template_search')
 ];
 
 function get_module_order() {
@@ -98,7 +140,7 @@ function get_module_order() {
         
         for (var i = 0; i < temp.length; i++) {
             if (temp[i] == '') {continue;}
-            if (!(temp[i] > -1 && temp[i] < _module_order.length)) {
+            if (!(temp[i] > -1 && temp[i] < modules.length)) {
                 success = false;
                 break;
             }

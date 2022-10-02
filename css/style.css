@@ -11,6 +11,10 @@
 
 body {
     background-color: var(--dark2);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-attachment: fixed;
     color: var(--white);
     padding: 0;
     margin: 0;
@@ -75,12 +79,17 @@ nav .tab_link:focus {
     transform: translateY(0.1rem);
 }
 
+.icon_up {
+    transform: translateY(-0.1rem);
+}
+
 .red {
     color: var(--red);
 }
 
 span.centered,
-p.centered    {
+p.centered,
+iframe.centered {
     display: inline-block;
     text-align: center;
     width: 100%;
@@ -91,8 +100,19 @@ span.small {
 }
 
 span.large,
-p.large {
+p.large,
+input.large {
     font-size: 4rem;
+}
+
+.freq_counter_num {
+    max-width: 4ch;
+    height: 4rem;
+    text-align: right;
+    color: var(--white);
+    background-color: var(--dark2);
+    border: none;
+    border-radius: 1rem;
 }
 
 .content {
@@ -229,4 +249,16 @@ body > .content:last-of-type {
 
 .btns_container > .btns > a:last-of-type {
     margin-right: 0;
+}
+
+input[type=number] { 
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
 }
