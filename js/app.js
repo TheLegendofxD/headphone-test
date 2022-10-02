@@ -1,41 +1,35 @@
-var beepAudio = new Audio('assets/beep.mp3');
-
-const beepContext = new AudioContext();
-const source = beepContext.createMediaElementSource(beepAudio);
-const beepPan = beepContext.createStereoPanner();
-
-source.connect(beepPan);
-beepPan.connect(beepContext.destination);
-
 const audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+const audioPan = audioCtx.createStereoPanner();
+audioPan.connect(audioCtx.destination);
+
 var bass_test_running = false;
 
 
 /* Module: Stereo Test */
 function play_beep(direction = 'both') {
-    if      ( direction == 'both'  ) { beepPan.pan.value =  0; }
-    else if ( direction == 'left'  ) { beepPan.pan.value = -1; }
-    else if ( direction == 'right' ) { beepPan.pan.value =  1; }
+    if      ( direction == 'both'  ) { playFreq(440, 1000, null,  0); }
+    else if ( direction == 'left'  ) { playFreq(440, 1000, null, -1); }
+    else if ( direction == 'right' ) { playFreq(440, 1000, null,  1); }
 
     else { console.error('Inavlid Audio Direction: ' + direction); return; }
-
-    beepAudio.play();
 }
 
 /* Module: Bass Test */
 // https://stackoverflow.com/questions/39200994/how-to-play-a-specific-frequency-with-javascript
-function playFreq(frequency, duration, counters) {
+function playFreq(frequency, duration, counters=null, direction=0) {
     var oscillator = audioCtx.createOscillator();
+    audioPan.pan.value = direction;
   
     oscillator.type = 'sine';
     oscillator.frequency.value = frequency; // value in hertz
-    oscillator.connect(audioCtx.destination);
+    oscillator.connect(audioPan);
     oscillator.start();
   
     setTimeout(
         function() {
             oscillator.stop();
-            console.log(frequency);
+            
+            if (counters == null) {return;}
             if (frequency > 0 && bass_test_running) {
                 var new_freq = frequency - 5;
 

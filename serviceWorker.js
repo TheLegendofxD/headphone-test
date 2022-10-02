@@ -1,4 +1,4 @@
-const cache_name = "ht-cache-v1.2";
+const cache_name = "ht-cache-v1.3";
 const assets = [
   "https://thelegendofxd.github.io/headphone-test/",
   "https://thelegendofxd.github.io/headphone-test/index.html",
@@ -6,7 +6,6 @@ const assets = [
   "https://thelegendofxd.github.io/headphone-test/js/app.js",
   "https://thelegendofxd.github.io/headphone-test/js/feather.min.js",
   "https://thelegendofxd.github.io/headphone-test/serviceWorker.js",
-  "https://thelegendofxd.github.io/headphone-test/assets/beep.mp3",
   "https://thelegendofxd.github.io/headphone-test/assets/icon72.png",
   "https://thelegendofxd.github.io/headphone-test/assets/icon96.png",
   "https://thelegendofxd.github.io/headphone-test/assets/icon128.png",
