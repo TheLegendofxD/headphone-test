@@ -2,8 +2,6 @@
 {
     "name": "Headphone Tester",
     "short_name": "Headphone Tester",
-    "start_url": "/",
-    "scope": "/",
     "display": "standalone",
     "background_color": "#34495e",
     "theme_color": "#9b59b6",
