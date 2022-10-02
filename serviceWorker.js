@@ -1,4 +1,4 @@
-const cache_name = "ht-cache-v1.1"
+const cache_name = "ht-cache-v1.2";
 const assets = [
   "https://thelegendofxd.github.io/headphone-test/",
   "https://thelegendofxd.github.io/headphone-test/index.html",
@@ -6,7 +6,6 @@ const assets = [
   "https://thelegendofxd.github.io/headphone-test/js/app.js",
   "https://thelegendofxd.github.io/headphone-test/js/feather.min.js",
   "https://thelegendofxd.github.io/headphone-test/serviceWorker.js",
-  "https://thelegendofxd.github.io/headphone-test/assets/beep.ogg",
   "https://thelegendofxd.github.io/headphone-test/assets/beep.mp3",
   "https://thelegendofxd.github.io/headphone-test/assets/icon72.png",
   "https://thelegendofxd.github.io/headphone-test/assets/icon96.png",
@@ -16,7 +15,7 @@ const assets = [
   "https://thelegendofxd.github.io/headphone-test/assets/icon192.png",
   "https://thelegendofxd.github.io/headphone-test/assets/icon384.png",
   "https://thelegendofxd.github.io/headphone-test/assets/icon512.png",
-]
+];
 
 self.addEventListener("install", installEvent => {
     installEvent.waitUntil(
@@ -24,7 +23,7 @@ self.addEventListener("install", installEvent => {
             cache.addAll(assets)
         })
     )
-})
+});
 
 self.addEventListener("fetch", fetchEvent => {
     fetchEvent.respondWith(
@@ -32,4 +31,4 @@ self.addEventListener("fetch", fetchEvent => {
             return res || fetch(fetchEvent.request)
         })
     )
-})
+});

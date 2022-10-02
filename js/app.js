@@ -1,4 +1,4 @@
-var beepAudio = new Audio('assets/beep.ogg');
+var beepAudio = new Audio('assets/beep.mp3');
 
 const beepContext = new AudioContext();
 const source = beepContext.createMediaElementSource(beepAudio);
