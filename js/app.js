@@ -103,8 +103,7 @@ function move_module(display_id, type_id, action) {
     }
 
     set_module_order(module_order);
-    /*render_modules(); // This causes the bug, that the old link in the context menu still remains */
-    window.location.reload()
+    render_modules();
 }
 
 render_modules();
