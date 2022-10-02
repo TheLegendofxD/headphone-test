@@ -31,17 +31,19 @@ function get_module_order() {
     /* Checking If Module Order is Valid */
     if (localStorage.getItem('module_order') != null) {
         let temp = localStorage.getItem('module_order').split(',');
+        let new_array = [];
         let success = true;
-
         
         for (var i = 0; i < temp.length; i++) {
+            if (temp[i] == '') {continue;}
             if (!(temp[i] > -1 && temp[i] < _module_order.length)) {
                 success = false;
                 break;
             }
+            new_array.push(temp[i]);
         }
 
-        if (success) { _module_order = temp; };
+        if (success) { _module_order = new_array; };
     }
 
     return _module_order;
@@ -50,10 +52,7 @@ function get_module_order() {
 function set_module_order(_module_order) {
     var mo_string = '';
     for (var i = 0; i < _module_order.length; i++) {
-        mo_string += _module_order[i].toString();
-        if (i != _module_order.length - 1) {
-            mo_string += ',';
-        }
+        mo_string += _module_order[i].toString() + ',';
     }
     localStorage.setItem('module_order', mo_string);
 }
@@ -70,8 +69,6 @@ function render_modules() {
 
         var mdls = insert_pos.querySelectorAll('.content');
         var mdl = mdls[mdls.length - 1];
-
-        console.log(mdl, mdls);
 
         mdl.innerHTML = mdl.innerHTML.replace(/#i0/gi, i);
         mdl.innerHTML = mdl.innerHTML.replace(/#i1/gi, module_order[i]);
@@ -100,6 +97,9 @@ function move_module(display_id, type_id, action) {
             temp.push(module_order[i]);
         }
         module_order = temp;
+    } else if (action == 'add_front') {
+        /* Ignores display id */
+        module_order.unshift(type_id);
     }
 
     set_module_order(module_order);

@@ -17,6 +17,11 @@ body {
     cursor: default;
 }
 
+a {
+    color: var(--white);
+    text-decoration: none;
+}
+
 nav {
     display: block;
     color: var(--light1);
@@ -80,9 +85,16 @@ nav .tab_link:focus {
     justify-content: center;
 }
 
-/* I know this causes the footer to also have the margin-top but it doesnt look bad so i keep it */
 .content:first-of-type {
+    margin-top: 2.2rem;
+}
+
+body > .content:first-of-type {
     margin-top: 5rem;
+}
+
+body > .content:last-of-type {
+    margin-top: 2.2rem;
 }
 
 .content_frame {
@@ -117,6 +129,7 @@ nav .tab_link:focus {
     cursor: pointer;
 }
 
+/* Dropdown */
 .dropdown > .dropdown-content {
     display: none;
     position: absolute;
@@ -133,6 +146,11 @@ nav .tab_link:focus {
     z-index: 10000;
 }
 
+.dropdown > .dropdown-content.centered {
+    right: 50%;
+    transform: translateX(50%);
+}
+
 .dropdown > .dropdown-content > a {
     display: block;
     width: 90%;
@@ -141,6 +159,7 @@ nav .tab_link:focus {
     margin-left: 5%;
     border-bottom: 1px solid var(--dark1);
     position: relative;
+    font-size: 1rem;
 }
 
 .dropdown > .dropdown-content > a:last-of-type {
@@ -157,9 +176,10 @@ nav .tab_link:focus {
     display: block;
 }
 
-.dropdown a {
-    color: var(--white);
-    text-decoration: none;
+/* Add Module */
+.add_module {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 /* Stereo test */
