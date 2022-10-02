@@ -80,6 +80,7 @@ nav .tab_link:focus {
     justify-content: center;
 }
 
+/* I know this causes the footer to also have the margin-top but it doesnt look bad so i keep it */
 .content:first-of-type {
     margin-top: 5rem;
 }

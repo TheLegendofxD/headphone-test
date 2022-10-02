@@ -9,9 +9,67 @@
     <script src="js/feather.min.js"></script>
 
     <!-- Audio Script -->
-    <script src="js/app.js"></script>
+    <script defer src="js/app.js"></script>
 </head>
 <body>
+    <!-- Module Templates -->
+    <template id="template_stereo_test">
+        <div id="stereo_test" class="content">
+            <div class="content_frame">
+                <p class="frame_title">
+                    <i data-feather="headphones" class="icon"></i>
+                    Stereo Test
+                </p>
+                <div class="frame_settings dropdown">
+                    <a href="#"><i data-feather="menu"></i></a>
+                    <div class="dropdown-content dropdown">
+                        <a href="javascript:move_module(#i0,#i1,'up');"><i data-feather="chevron-up" class="d_icon"></i> Move Up</a>
+                        <a href="javascript:move_module(#i0,#i1,'down');"><i data-feather="chevron-down" class="d_icon"></i> Move Down</a>
+                        <a href="javascript:move_module(#i0,#i1,'away');"><i data-feather="trash-2" class="d_icon red"></i> Remove</a>
+                    </div>
+                </div>
+                <div class="stereo_test_container">
+                    <div class="stereo_test">
+                        <a href="javascript:play_beep('left');" id="left">
+                            <i data-feather="chevron-left"></i>
+                            Left
+                            <i data-feather="chevron-left"></i>
+                        </a>
+                        <a href="javascript:play_beep('both');" id="both">
+                            <i data-feather="chevron-left"></i>
+                            Both
+                            <i data-feather="chevron-right"></i>
+                        </a>
+                        <a href="javascript:play_beep('right');" id="right">
+                            <i data-feather="chevron-right"></i>
+                            Right
+                            <i data-feather="chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="template_bass_test">
+        <div class="content">
+            <div class="content_frame">
+                <p class="frame_title">
+                    <i data-feather="bar-chart-2" class="icon"></i>
+                    Bass Test
+                </p>
+                <div class="frame_settings dropdown">
+                    <a href="#"><i data-feather="menu"></i></a>
+                    <div class="dropdown-content dropdown">
+                        <a href="javascript:move_module(#i0,#i1,'up');"><i data-feather="chevron-up" class="d_icon"></i> Move Up</a>
+                        <a href="javascript:move_module(#i0,#i1,'down');"><i data-feather="chevron-down" class="d_icon"></i> Move Down</a>
+                        <a href="javascript:move_module(#i0,#i1,'away');"><i data-feather="trash-2" class="d_icon red"></i> Remove</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- End Module Templates -->
+
     <nav>
         <a class="tab_link" href="#left">Skip to Stereo Test (Press Enter)</a>
         <a class="tab_link" href="#bass">Skip to Bass Test (Press Enter)</a>
@@ -19,57 +77,9 @@
             <p class="app_title">Headphone Tester</p>
         </a>
     </nav>
-    <div id="stereo_test" class="content">
-        <div class="content_frame">
-            <p class="frame_title">
-                <i data-feather="headphones" class="icon"></i>
-                Stereo Test
-            </p>
-            <div class="frame_settings dropdown">
-                <a href="#"><i data-feather="menu"></i></a>
-                <div class="dropdown-content dropdown">
-                    <a href=""><i data-feather="chevron-up" class="d_icon"></i> Move Up</a>
-                    <a href=""><i data-feather="chevron-down" class="d_icon"></i> Move Down</a>
-                    <a href=""><i data-feather="trash-2" class="d_icon red"></i> Remove</a>
-                </div>
-            </div>
-            <div class="stereo_test_container">
-                <div class="stereo_test">
-                    <a href="javascript:play_beep('left');" id="left">
-                        <i data-feather="chevron-left"></i>
-                        Left
-                        <i data-feather="chevron-left"></i>
-                    </a>
-                    <a href="javascript:play_beep('both');" id="both">
-                        <i data-feather="chevron-left"></i>
-                        Both
-                        <i data-feather="chevron-right"></i>
-                    </a>
-                    <a href="javascript:play_beep('right');" id="right">
-                        <i data-feather="chevron-right"></i>
-                        Right
-                        <i data-feather="chevron-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="content">
-        <div class="content_frame">
-            <p class="frame_title">
-                <i data-feather="bar-chart-2" class="icon"></i>
-                Bass Test
-            </p>
-            <div class="frame_settings dropdown">
-                <a href="#"><i data-feather="menu"></i></a>
-                <div class="dropdown-content dropdown">
-                    <a href=""><i data-feather="chevron-up" class="d_icon"></i> Move Up</a>
-                    <a href=""><i data-feather="chevron-down" class="d_icon"></i> Move Down</a>
-                    <a href=""><i data-feather="trash-2" class="d_icon red"></i> Remove</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
+    <span id="insert"></span>
+
     <div class="content">
         <div class="content_frame footer">
             <p>
@@ -84,7 +94,4 @@
         </div>
     </div>
 </body>
-<script>
-    feather.replace();
-</script>
 </html>
