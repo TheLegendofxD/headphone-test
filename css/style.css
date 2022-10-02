@@ -25,6 +25,7 @@ nav {
     top: 0;
     width: 100%;
     box-shadow: 0px 1px 4px var(--shadow);
+    z-index: 10000000;
 }
 
 nav a {
@@ -151,7 +152,6 @@ nav .tab_link:focus {
     transform: translateY(-.2rem);
 }
 
-.dropdown:hover > .dropdown-content,
 .dropdown:focus-within > .dropdown-content  {
     display: block;
 }
