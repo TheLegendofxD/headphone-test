@@ -14,6 +14,7 @@ body {
     color: var(--white);
     padding: 0;
     margin: 0;
+    cursor: default;
 }
 
 nav {
@@ -101,6 +102,10 @@ nav .tab_link:focus {
 .footer {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+}
+
+.footer a {
+    color: var(--white);
 }
 
 .frame_settings {
