@@ -75,7 +75,13 @@ nav .tab_link {
 }
 
 nav .tab_link:focus {
-    transform: translateY(0)    ;
+    transform: translateY(0);
+}
+
+nav .settings {
+    position: fixed;
+    right: 1.2rem;
+    top: 1.2rem;
 }
 
 .icon {
