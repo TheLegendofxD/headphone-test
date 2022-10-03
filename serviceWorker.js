@@ -1,4 +1,4 @@
-const cache_name = "ht-cache-v1.3";
+const cacheName = "ht-cache-v1.3";
 const assets = [
   "https://thelegendofxd.github.io/headphone-test/",
   "https://thelegendofxd.github.io/headphone-test/index.html",
@@ -18,16 +18,38 @@ const assets = [
 
 self.addEventListener("install", installEvent => {
     installEvent.waitUntil(
-        caches.open(cache_name).then(cache => {
-            cache.addAll(assets)
+        caches.open(cacheName).then(cache => {
+            return cache.addAll(assets);
+        })
+    );
+});
+
+self.addEventListener("activate", event => {
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.filter(cacheName => {
+                    // Return true if you want to remove this cache
+                    return true; // I guess I want to remove it?
+                }).map(cacheName => {
+                    return caches.delete(cacheName);
+                })
+            )
         })
     )
-});
+})
 
 self.addEventListener("fetch", fetchEvent => {
     fetchEvent.respondWith(
-        caches.match(fetchEvent.request).then(res => {
-            return res || fetch(fetchEvent.request)
+        caches.open(cacheName).then(cache => {
+            return cache.match(fetchEvent.request).then(res => {
+                const fetchPromise = fetch(fetchEvent.request)
+                .then(networkResponse => {
+                    cache.put(fetchEvent.request, networkResponse.clone());
+                    return networkResponse;
+                })
+                return res || fetchPromise;
+            })
         })
     )
 });

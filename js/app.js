@@ -211,7 +211,7 @@ render_modules();
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
         navigator.serviceWorker
-        .register("/serviceWorker.js")
+        .register("https://thelegendofxd.github.io/headphone-test/serviceWorker.js")
         .then(res => console.log("service worker registered"))
         .catch(err => console.log("service worker not registered", err))
     })
