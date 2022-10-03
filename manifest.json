@@ -6,6 +6,8 @@
     "background_color": "#34495e",
     "theme_color": "#9b59b6",
     "orientation": "portrait-primary",
+    "categories": ["utilities"],
+    "description": "Easily check if your speakers or headphones are working correctly!",
     "icons": [
     {
       "src": "https://TheLegendofxD.github.io/headphone-test/assets/icon72.png",
@@ -38,6 +40,18 @@
     {
       "src": "https://TheLegendofxD.github.io/headphone-test/assets/icon512.png",
       "type": "image/png", "sizes": "512x512"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://TheLegendofxD.github.io/headphone-test/screenshots/desktop.png",
+      "sizes": "1920x1080",
+      "platform": "windows"
+    },
+    {
+      "src": "https://TheLegendofxD.github.io/headphone-test/screenshots/mobile.png",
+      "sizes": "1284×2778",
+      "platform": "narrow"
     }
   ]
 }
