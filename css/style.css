@@ -91,6 +91,10 @@ nav .settings {
     top: 1.2rem;
 }
 
+.hidden {
+    display: none;
+}
+
 .icon {
     transform: translateY(0.1rem);
 }

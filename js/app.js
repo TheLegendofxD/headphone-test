@@ -230,6 +230,12 @@ if (themes.indexOf(theme) < 0) {
 }
 apply_theme(theme);
 
+/* About Popup */
+const about_popup = document.getElementById('about_popup');
+function open_about() {
+    about_popup.classList.toggle('active');
+    document.getElementById('about_theme').innerText = (theme == '' ? 'Default' == '': theme);
+}
 
 /* Register ServiveWorker */
 if ("serviceWorker" in navigator) {
@@ -241,11 +247,28 @@ if ("serviceWorker" in navigator) {
     })
 }
 
-/* About Popup */
-const about_popup = document.getElementById('about_popup');
-function open_about() {
-    about_popup.classList.toggle('active');
-    document.getElementById('about_theme').innerText = (theme == '' ? 'Default' == '': theme);
-}
-
 document.getElementById('about_user_agent').innerText = window.navigator.userAgent;
+
+/* PWA Installation Button */
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // Show button
+    document.getElementById('pwa_install').classList.remove('hidden');
+});
+
+document.getElementById('pwa_install').addEventListener('click', async () => {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    
+    deferredPrompt = null;
+
+    if (outcome === 'accepted') {
+      console.log('User accepted the install prompt.');
+    } else if (outcome === 'dismissed') {
+      console.log('User dismissed the install prompt');
+    }
+  });
