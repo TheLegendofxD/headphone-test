@@ -43,11 +43,11 @@
         <div id="stereo_test" class="content">
             <div class="content_frame">
                 <p class="frame_title">
-                    <i data-feather="headphones" class="icon"></i>
+                    <i data-feather="headphones" class="icon" aria-label="Headphones"></i>
                     Stereo Test
                 </p>
                 <div class="frame_settings dropdown">
-                    <a href="javascript:void(0);"><i data-feather="menu"></i></a>
+                    <a href="javascript:void(0);"><i data-feather="menu" aria-label="Open Options"></i></a>
                     <div class="dropdown-content">
                         <a href="javascript:move_module(#i0,#i1,'up');"><i data-feather="chevron-up" class="d_icon"></i> Move Up</a>
                         <a href="javascript:move_module(#i0,#i1,'down');"><i data-feather="chevron-down" class="d_icon"></i> Move Down</a>
@@ -57,19 +57,19 @@
                 <div class="btns_container">
                     <div class="btns">
                         <a href="javascript:play_beep('left');" id="left">
-                            <i data-feather="chevron-left"></i>
+                            <i data-feather="chevron-left" aria-label="Arrow Left"></i>
                             Left
-                            <i data-feather="chevron-left"></i>
+                            <i data-feather="chevron-left" aria-label="Arrow Left"></i>
                         </a>
                         <a href="javascript:play_beep('both');" id="both">
-                            <i data-feather="chevron-left"></i>
+                            <i data-feather="chevron-left" aria-label="Arrow Left"></i>
                             Both
-                            <i data-feather="chevron-right"></i>
+                            <i data-feather="chevron-right" aria-label="Arrow Right"></i>
                         </a>
                         <a href="javascript:play_beep('right');" id="right">
-                            <i data-feather="chevron-right"></i>
+                            <i data-feather="chevron-right" aria-label="Arrow Right"></i>
                             Right
-                            <i data-feather="chevron-right"></i>
+                            <i data-feather="chevron-right" aria-label="Arrow Right"></i>
                         </a>
                     </div>
                 </div>
@@ -80,11 +80,11 @@
         <div class="content">
             <div class="content_frame">
                 <p class="frame_title">
-                    <i data-feather="bar-chart-2" class="icon"></i>
+                    <i data-feather="bar-chart-2" class="icon" aria-label="Audio Wave"></i>
                     Bass Test
                 </p>
                 <div class="frame_settings dropdown">
-                    <a href="javascript:void(0);"><i data-feather="menu"></i></a>
+                    <a href="javascript:void(0);"><i data-feather="menu" aria-label="Open Options"></i></a>
                     <div class="dropdown-content">
                         <a href="javascript:move_module(#i0,#i1,'up');"><i data-feather="chevron-up" class="d_icon"></i> Move Up</a>
                         <a href="javascript:move_module(#i0,#i1,'down');"><i data-feather="chevron-down" class="d_icon"></i> Move Down</a>
@@ -96,7 +96,7 @@
                 <br><br><br>
                 <div class="btns_container">
                     <div class="btns single-btn">
-                        <a href="javascript:start_bass_test();" class="freq_start"><i data-feather="play" class="icon_up"></i>&nbsp;Start Test</a>
+                        <a href="javascript:start_bass_test();" class="freq_start"><i data-feather="play" class="icon_up" aria-label="Start Icon"></i>&nbsp;Start Test</a>
                     </div>
                 </div>
             </div>
@@ -106,11 +106,11 @@
         <div class="content">
             <div class="content_frame">
                 <p class="frame_title">
-                    <i data-feather="bar-chart-2" class="icon"></i>
+                    <i data-feather="bar-chart-2" class="icon" aria-label="Audio Wave"></i>
                     Bass Test (Advanced)
                 </p>
                 <div class="frame_settings dropdown">
-                    <a href="javascript:void(0);"><i data-feather="menu"></i></a>
+                    <a href="javascript:void(0);"><i data-feather="menu" aria-label="Open Options"></i></a>
                     <div class="dropdown-content">
                         <a href="javascript:move_module(#i0,#i1,'up');"><i data-feather="chevron-up" class="d_icon"></i> Move Up</a>
                         <a href="javascript:move_module(#i0,#i1,'down');"><i data-feather="chevron-down" class="d_icon"></i> Move Down</a>
@@ -119,12 +119,12 @@
                 </div>
                 <span class="centered small">Frequency:</span>
                 <span class="centered large">
-                    <input class="freq_counter_num large" value="600" type="number" min="0" max="9999" step="1" onkeyup="enforceMinMax(this, '.freq_counter_num')"> Hz</input>
+                    <input class="freq_counter_num large" value="600" type="number" min="0" max="9999" step="1" onkeyup="enforceMinMax(this, '.freq_counter_num')" aria-label="Start Frequency" title="Start Frequency"> Hz</input>
                 </span>
                 <br><br><br>
                 <div class="btns_container">
                     <div class="btns single-btn">
-                        <a href="javascript:start_bass_test(true);" class="freq_start"><i data-feather="play" class="icon_up"></i>&nbsp;Start Test</a>
+                        <a href="javascript:start_bass_test(true);" class="freq_start"><i data-feather="play" class="icon_up" aria-label="Start Icon"></i>&nbsp;Start Test</a>
                     </div>
                 </div>
             </div>
@@ -134,11 +134,11 @@
         <div class="content">
             <div class="content_frame">
                 <p class="frame_title">
-                    <i data-feather="search" class="icon"></i>
+                    <i data-feather="search" class="icon" aria-label="Magnifying Glass"></i>
                     Search
                 </p>
                 <div class="frame_settings dropdown">
-                    <a href="javascript:void(0);"><i data-feather="menu"></i></a>
+                    <a href="javascript:void(0);"><i data-feather="menu" aria-label="Open Options"></i></a>
                     <div class="dropdown-content">
                         <a href="javascript:move_module(#i0,#i1,'up');"><i data-feather="chevron-up" class="d_icon"></i> Move Up</a>
                         <a href="javascript:move_module(#i0,#i1,'down');"><i data-feather="chevron-down" class="d_icon"></i> Move Down</a>
@@ -163,13 +163,13 @@
         <div class="content_frame add_module">
             <div class="frame_title dropdown">
                 <a href="javascript:void(0);">
-                    <i data-feather="plus-square"></i> Add Module
+                    <i data-feather="plus-square" aria-label="Add Module"></i> Add Module
                 </a>
                 <div class="dropdown-content centered">
-                    <a href="javascript:move_module(-1,0,'add_front');"><i data-feather="headphones" class="d_icon"></i> Stereo Test</a>
-                    <a href="javascript:move_module(-1,1,'add_front');"><i data-feather="bar-chart-2" class="d_icon"></i> Bass Test</a>
-                    <a href="javascript:move_module(-1,2,'add_front');"><i data-feather="bar-chart-2" class="d_icon"></i> Bass Test (Adv.)</a>
-                    <a href="javascript:move_module(-1,3,'add_front');"><i data-feather="search" class="d_icon"></i> Search</a>
+                    <a href="javascript:move_module(-1,0,'add_front');"><i data-feather="headphones" class="d_icon" aria-label="Add Stereo Test Module"></i> Stereo Test</a>
+                    <a href="javascript:move_module(-1,1,'add_front');"><i data-feather="bar-chart-2" class="d_icon" aria-label="Add Bass Test Module"></i> Bass Test</a>
+                    <a href="javascript:move_module(-1,2,'add_front');"><i data-feather="bar-chart-2" class="d_icon" aria-label="Add Bass Test (Advanced) Module"></i> Bass Test (Adv.)</a>
+                    <a href="javascript:move_module(-1,3,'add_front');"><i data-feather="search" class="d_icon" aria-label="Add Search Module"></i> Search</a>
                 </div>
             </div>
         </div>

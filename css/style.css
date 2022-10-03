@@ -2,6 +2,7 @@
     /* https://flatuicolors.com/palette/defo */
     --dark1:  #2c3e50;
     --dark2:  #34495e;
+    --title:  #C891E2;
     --light1: #9b59b6;
     --light2: #8e44ad;
     --white:  #ecf0f1;
@@ -50,15 +51,16 @@ nav a:hover {
 }
 
 nav .home_link p {
-    color: var(--light1);
+    color: var(--title);
     padding: 1rem;
     margin: 0;
     font-size: 1.3rem;
-    /*text-shadow: 1px 1px var(--light2);*/
+    text-shadow: 1px 1px var(--light2);
     user-select: none;
 }
 
 nav .tab_link {
+    color: #000;
     position: absolute;
     transform: translateY(-120%);
     width: 50%;

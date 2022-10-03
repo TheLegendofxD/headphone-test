@@ -56,7 +56,7 @@ function start_bass_test(advanced=false) {
         bass_test_running = false;
 
         for (var j = 0; j < start_btns.length; j++) {
-            start_btns[j].innerHTML = '<i data-feather="play" class="icon_up"></i>&nbsp;Start Test';
+            start_btns[j].innerHTML = '<i data-feather="play" class="icon_up" aria-label="Start Icon"></i>&nbsp;Start Test';
         }
         feather.replace();
         return;
@@ -65,7 +65,7 @@ function start_bass_test(advanced=false) {
     bass_test_running = true;
 
     for (var j = 0; j < start_btns.length; j++) {
-        start_btns[j].innerHTML = '<i data-feather="square" class="icon_up"></i>&nbsp;Stop Test';
+        start_btns[j].innerHTML = '<i data-feather="square" class="icon_up" aria-label="Stop Icon"></i>&nbsp;Stop Test';
     }
     feather.replace();
 
