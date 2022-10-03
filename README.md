@@ -5,5 +5,6 @@
 
 Easily check if your speakers or headphones are working correctly!
 
-![Screenshot Desktop](https://thelegendofxd.github.io/screenshots/desktop.png)
-![Screenshot Mobile](https://thelegendofxd.github.io/screenshots/mobile.png)
+| Desktop | Mobile |
+| --- | --- |
+| ![Screenshot Desktop](https://thelegendofxd.github.io/headphone-test/screenshots/desktop.png) | ![Screenshot Mobile](https://thelegendofxd.github.io/headphone-test/screenshots/mobile.png)
