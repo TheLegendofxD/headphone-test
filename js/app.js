@@ -207,6 +207,30 @@ function move_module(display_id, type_id, action) {
 
 render_modules();
 
+/* Theme */
+const themes = ['', 'blue'];
+const theme_prevs = [['Default', '#2c3e50', '#8e44ad'], ['Blue', '#333a50', '#475ea9']];
+const theme_prev_circle = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="92.04699" height="87.03743" viewBox="0,0,92.04699,87.03743"><g transform="translate(-193.9765,-136.48129)"><g data-paper-data="{&quot;isPaintingLayer&quot;:true}" fill-rule="nonzero" stroke="#000000" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" style="mix-blend-mode: normal"><path d="M285.0235,180c0,23.48244 -20.15771,42.51871 -45.0235,42.51871c-24.86579,0 -45.02349,-19.03628 -45.02349,-42.51871c0,-23.48244 20.1577,-42.51871 45.0235,-42.51871c24.86579,0 45.0235,19.03628 45.0235,42.51871z" fill="&color0"/><path d="M284.84918,180c0,10.10826 -3.84035,19.37954 -10.23381,26.61263c-8.22593,9.30621 -73.83289,-49.86681 -64.85545,-57.51971c7.97423,-6.7977 18.58826,-10.944 30.24007,-10.944c24.76952,0 44.84918,18.73737 44.84918,41.85109z" fill="&color1"/></g></g></svg><!--rotationCenter:46.023495:43.518714999999986-->';
+var theme = localStorage.getItem('theme');
+const select_theme_popup = document.getElementById('select_theme_popup');
+
+function apply_theme(theme_name='') {
+    localStorage.setItem('theme', theme_name);
+    document.body.className = 'theme_' + theme_name;
+}
+
+function open_theme_selector() {
+    select_theme_popup.classList.toggle('active');
+    /* Please Add Dynamic Solution for listing themes */
+}
+
+if (themes.indexOf(theme) < 0) {
+    console.log('No valid theme: ', theme);
+    theme = themes[0];
+}
+apply_theme(theme);
+
+
 /* Register ServiveWorker */
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {

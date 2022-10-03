@@ -10,6 +10,13 @@
     --shadow: #242424;
 }
 
+body.theme_blue {
+    --dark1:  #333a50;
+    --dark2:  #3c445e;
+    --title:  #92a3dd;
+    --light2: #475ea9;
+}
+
 body {
     background-color: var(--dark2);
     background-size:cover;
@@ -98,7 +105,8 @@ nav .settings {
 
 span.centered,
 p.centered,
-iframe.centered {
+iframe.centered,
+a.centered {
     display: inline-block;
     text-align: center;
     width: 100%;
@@ -152,7 +160,8 @@ body > .content:last-of-type {
     position: relative; /* for the position: absolute; in .frame_settings to work */
 }
 
-.content_frame .frame_title {
+.content_frame .frame_title,
+.popup .popup_title {
     font-size: 1.8rem;
     width: 100%;
     text-align: center;
@@ -161,17 +170,49 @@ body > .content:last-of-type {
 .footer {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
 }
 
 .footer a {
     color: var(--white);
 }
 
-.frame_settings {
+.frame_settings,
+.popup .popup_content > .popup_close {
     position: absolute;
     top: 1rem;
     right: 1rem;
     cursor: pointer;
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    max-width: 1000px;
+    max-height: 550px;
+    width: 95vw;
+    height: 80vh;
+    border: 2px solid var(--dark1);
+    border-radius: 1rem;
+    background-color: var(--dark2);
+    box-shadow: 4px 4px 8px var(--shadow);
+}
+
+.popup.active {
+    display: block;
+}
+
+.popup .popup_title {
+    display: block;
+    padding-top: 1rem;
+}
+
+.popup .popup_content {
+    position: relative;
 }
 
 /* Dropdown */
@@ -247,7 +288,7 @@ body > .content:last-of-type {
     height: 4rem;
     min-width: 33%;
     margin-right: .5%;
-    background-color: #8e44ad;
+    background-color: var(--light2);
     justify-content: center;
     align-items: center;
     border-radius: 1rem;
@@ -275,4 +316,11 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { 
       -webkit-appearance: none; 
       margin: 0; 
+}
+
+/* Theme Selector */
+.theme_prev > span {
+    font-size: 1.4rem;
+    display: inline-block;
+    transform: translateY(-2rem);
 }
