@@ -240,3 +240,12 @@ if ("serviceWorker" in navigator) {
         .catch(err => console.log("service worker not registered", err))
     })
 }
+
+/* About Popup */
+const about_popup = document.getElementById('about_popup');
+function open_about() {
+    about_popup.classList.toggle('active');
+    document.getElementById('about_theme').innerText = (theme == '' ? 'Default' == '': theme);
+}
+
+document.getElementById('about_user_agent').innerText = window.navigator.userAgent;
