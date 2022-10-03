@@ -91,10 +91,6 @@ nav .settings {
     top: 1.2rem;
 }
 
-.hidden {
-    display: none;
-}
-
 .icon {
     transform: translateY(0.1rem);
 }
@@ -327,4 +323,8 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 1.4rem;
     display: inline-block;
     transform: translateY(-2rem);
+}
+
+.hidden {
+    display: none !important;
 }
