@@ -10,6 +10,9 @@
     --shadow: #242424;
     --btn-text: var(--white);
     --on-light: var(--white);
+    --border-color: var(--dark1);
+    --content-border-width: 0;
+    --theme-prev-circle: black;
 }
 
 body.theme_midnight {
@@ -17,6 +20,7 @@ body.theme_midnight {
     --dark2:  #3c445e;
     --title:  #92a3dd;
     --light2: #475ea9;
+    --border-color: var(--dark1);
 }
 
 body.theme_autumn {
@@ -25,6 +29,7 @@ body.theme_autumn {
     --title:  #FFC857;
     --light2: #E9724C;
     --shadow: #1a0d0d;
+    --border-color: var(--dark1);
 }
 
 body.theme_lotus {
@@ -33,6 +38,7 @@ body.theme_lotus {
     --title:  #C1F7DC;
     --light2: #3acf9e;
     --btn-text: var(--dark1);
+    --border-color: var(--dark1);
 }
 
 body.theme_watermelon {
@@ -43,6 +49,7 @@ body.theme_watermelon {
     --btn-text: var(--dark1);
     --on-light: var(--dark1);
     --red: #ff3300;
+    --border-color: var(--dark1);
 }
 
 body.theme_dawn {
@@ -51,6 +58,7 @@ body.theme_dawn {
     --title:  #E3D7FF;
     --light2: #AFA2FF;
     --btn-text: var(--dark1);
+    --border-color: var(--dark1);
 }
 
 body.theme_ukraine {
@@ -59,6 +67,16 @@ body.theme_ukraine {
     --title: #d8a811;
     --light2: var(--title);
     --btn-text: var(--dark1);
+    --border-color: var(--dark1);
+}
+
+body.theme_oled {
+    --dark1: #000;
+    --dark2: #000;
+    --shadow: #000;
+    --border-color: #111;
+    --content-border-width: 1px;
+    --theme-prev-circle: white;
 }
 
 body {
@@ -88,6 +106,7 @@ nav {
     width: 100%;
     box-shadow: 0px 1px 4px var(--shadow);
     z-index: 10000000;
+    border-bottom: var(--content-border-width) solid var(--border-color);
 }
 
 nav a {
@@ -201,6 +220,7 @@ body > .content:last-of-type {
     padding: 1.8rem;
     padding-top: 0rem;
     border-radius: 1rem;
+    border: var(--content-border-width) solid var(--border-color);
     position: relative; /* for the position: absolute; in .frame_settings to work */
 }
 
@@ -240,7 +260,7 @@ body > .content:last-of-type {
     max-height: 550px;
     width: 95vw;
     height: 80vh;
-    border: 2px solid var(--dark1);
+    border: 2px solid var(--border-color);
     border-radius: 1rem;
     background-color: var(--dark2);
     box-shadow: 4px 4px 8px var(--shadow);
@@ -271,7 +291,7 @@ body > .content:last-of-type {
     padding-bottom: .2rem;
     text-align: center;
     right: 0;
-    border: 2px solid var(--dark1);
+    border: 2px solid var(--border-color);
     border-radius: 1rem;
     box-shadow: 4px 4px 8px var(--shadow);
     z-index: 10000;
@@ -289,7 +309,7 @@ body > .content:last-of-type {
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     margin-left: 5%;
-    border-bottom: 1px solid var(--dark1);
+    border-bottom: 1px solid var(--border-color);
     position: relative;
     font-size: 1rem;
 }
