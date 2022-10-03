@@ -253,7 +253,8 @@ body > .content:last-of-type {
 }
 
 .btns_container > .btns.single-btn > a {
-    min-width: 50%;
+    max-width: 70%;
+    width: 300px;
 }
 
 input[type=number] { 
