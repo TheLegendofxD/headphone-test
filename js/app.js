@@ -75,6 +75,7 @@ function start_bass_test(advanced=false) {
     
 
     var start_freq = 600;
+    if (advanced) { start_freq = parseInt(counters[0][0].value); }
 
     for (var j = 0; j < counters[0].length; j++) {
         if (counters[1]) {
