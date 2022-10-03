@@ -9,6 +9,7 @@
     --red:    #e74c3c;
     --shadow: #242424;
     --btn-text: var(--white);
+    --on-light: var(--white);
 }
 
 body.theme_midnight {
@@ -20,9 +21,10 @@ body.theme_midnight {
 
 body.theme_autumn {
     --dark1:  #481D24;
-    --dark2:  #691825;
+    --dark2:  #2c1717;
     --title:  #FFC857;
     --light2: #E9724C;
+    --shadow: #1a0d0d;
 }
 
 body.theme_lotus {
@@ -30,6 +32,7 @@ body.theme_lotus {
     --dark2:  #A2708A;
     --title:  #C1F7DC;
     --light2: #3acf9e;
+    --btn-text: var(--dark1);
 }
 
 body.theme_watermelon {
@@ -37,6 +40,9 @@ body.theme_watermelon {
     --dark2:  #87B6A7;
     --title:  #E3F09B;
     --light2: #F79F79;
+    --btn-text: var(--dark1);
+    --on-light: var(--dark1);
+    --red: #ff3300;
 }
 
 body.theme_dawn {
@@ -44,14 +50,15 @@ body.theme_dawn {
     --dark2:  #7A89C2;
     --title:  #E3D7FF;
     --light2: #AFA2FF;
+    --btn-text: var(--dark1);
 }
 
 body.theme_ukraine {
     --dark1: #1a274c;
     --dark2: #273458;
     --title: #d8a811;
-    --light2: #d8a811;
-    --btn-text: #1a274c;
+    --light2: var(--title);
+    --btn-text: var(--dark1);
 }
 
 body {
@@ -237,6 +244,7 @@ body > .content:last-of-type {
     border-radius: 1rem;
     background-color: var(--dark2);
     box-shadow: 4px 4px 8px var(--shadow);
+    color: var(--on-light);
 }
 
 .popup.active {
@@ -276,6 +284,7 @@ body > .content:last-of-type {
 
 .dropdown > .dropdown-content > a {
     display: block;
+    color: var(--on-light);
     width: 90%;
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
@@ -360,6 +369,11 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 1.4rem;
     display: inline-block;
     transform: translateY(-2rem);
+}
+
+.theme_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .hidden {
