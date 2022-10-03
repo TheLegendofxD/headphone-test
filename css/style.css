@@ -8,13 +8,50 @@
     --white:  #ecf0f1;
     --red:    #e74c3c;
     --shadow: #242424;
+    --btn-text: var(--white);
 }
 
-body.theme_blue {
+body.theme_midnight {
     --dark1:  #333a50;
     --dark2:  #3c445e;
     --title:  #92a3dd;
     --light2: #475ea9;
+}
+
+body.theme_autumn {
+    --dark1:  #481D24;
+    --dark2:  #691825;
+    --title:  #FFC857;
+    --light2: #E9724C;
+}
+
+body.theme_lotus {
+    --dark1:  #824670;
+    --dark2:  #A2708A;
+    --title:  #C1F7DC;
+    --light2: #3acf9e;
+}
+
+body.theme_watermelon {
+    --dark1:  #17694f;
+    --dark2:  #87B6A7;
+    --title:  #E3F09B;
+    --light2: #F79F79;
+}
+
+body.theme_dawn {
+    --dark1:  #544f6b;
+    --dark2:  #7A89C2;
+    --title:  #E3D7FF;
+    --light2: #AFA2FF;
+}
+
+body.theme_ukraine {
+    --dark1: #1a274c;
+    --dark2: #273458;
+    --title: #d8a811;
+    --light2: #d8a811;
+    --btn-text: #1a274c;
 }
 
 body {
@@ -294,7 +331,7 @@ body > .content:last-of-type {
     border-radius: 1rem;
     text-decoration: none;
     font-size: 1.4rem;
-    color: var(--white);
+    color: var(--btn-text);
 }
 
 .btns_container > .btns > a:last-of-type {
