@@ -160,9 +160,9 @@
         <div class="settings dropdown">
             <a href="javascript:void(0);"><i data-feather="menu" aria-label="Application Menu"></i></a>
             <div class="dropdown-content">
-                <a href="javascript:open_theme_selector();"><i data-feather="droplet" class="d_icon"></i> Theme</a>
+                <a href="javascript:open_theme_selector();" id="popup-select-theme-open"><i data-feather="droplet" class="d_icon"></i> Theme</a>
                 <a href="#" class="hidden" id="pwa_install"><i data-feather="download" class="d_icon"></i> Install PWA</a>
-                <a href="javascript:open_about();"><i data-feather="info" class="d_icon"></i> About</a>
+                <a href="javascript:open_about();" id="popup-about-open"><i data-feather="info" class="d_icon"></i> About</a>
             </div>
         </div>
     </nav>
@@ -202,7 +202,7 @@
     <div class="popup" id="select_theme_popup">
         <div class="popup_content">
             <div class="popup_close">
-                <a href="javascript:open_theme_selector();"><i data-feather="x"></i></a>
+                <a href="javascript:open_theme_selector();" id="popup-select-theme-x"><i data-feather="x"></i></a>
             </div>
             <span class="popup_title">
                 <i data-feather="droplet"></i> Themes
@@ -213,7 +213,7 @@
     <div class="popup" id="about_popup">
         <div class="popup_content">
             <div class="popup_close">
-                <a href="javascript:open_about();"><i data-feather="x"></i></a>
+                <a href="javascript:open_about();" id="popup-about-x"><i data-feather="x"></i></a>
             </div>
             <span class="popup_title">
                 <i data-feather="info"></i> About

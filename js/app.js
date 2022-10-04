@@ -235,7 +235,12 @@ function apply_theme(theme_name='') {
 
 function open_theme_selector() {
     select_theme_popup.classList.toggle('active');
-    /* Please Add Dynamic Solution for listing themes */
+    
+    if (select_theme_popup.classList.contains('active')) {
+        document.getElementById('popup-select-theme-x').focus();
+    } else {
+        document.getElementById('popup-select-theme-open').focus();
+    }
 }
 
 if (themes.indexOf(theme) < 0) {
@@ -254,7 +259,13 @@ for (var i=0;i<themes.length;i++) {
 const about_popup = document.getElementById('about_popup');
 function open_about() {
     about_popup.classList.toggle('active');
-    document.getElementById('about_theme').innerText = (theme == '' ? 'default': theme);
+    
+    if (about_popup.classList.contains('active')) {
+        document.getElementById('about_theme').innerText = (theme == '' ? 'default': theme);
+        document.getElementById('popup-about-x').focus();
+    } else {
+        document.getElementById('popup-about-open').focus();
+    }
 }
 
 /* Register ServiveWorker */

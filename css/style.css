@@ -150,8 +150,13 @@ nav .tab_link:focus {
 
 nav .settings {
     position: fixed;
-    right: 1.2rem;
-    top: 1.2rem;
+    right: 0;
+    top: 0;
+}
+
+nav .settings a {
+    display: block;
+    padding: 1.2rem;
 }
 
 .icon {
