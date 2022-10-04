@@ -48,17 +48,17 @@
     {
       "src": "https://TheLegendofxD.github.io/headphone-test/screenshots/desktop.jpg",
       "sizes": "1920x1080",
-      "platform": "windows"
+      "platform": "wide"
     },
     {
       "src": "https://TheLegendofxD.github.io/headphone-test/screenshots/mobile1.jpg",
-      "sizes": "499×1080",
-      "platform": "android"
+      "sizes": "499x1080",
+      "platform": "narrow"
     },
     {
       "src": "https://TheLegendofxD.github.io/headphone-test/screenshots/pad0.jpg",
-      "sizes": "1440×1080",
-      "platform": "ios"
+      "sizes": "1440x1080",
+      "platform": "narrow"
     }
   ]
 }
