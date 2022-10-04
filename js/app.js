@@ -15,6 +15,14 @@ function play_beep(direction = 'both') {
 }
 
 /* Module: Bass Test */
+function set_innerhtml_for_query(query, new_html) {
+    var elems = document.querySelectorAll(query);
+
+    for (var i=0;i<elems.length;i++) {
+        elems[i].innerHTML = new_html;
+    }
+}
+
 // https://stackoverflow.com/questions/39200994/how-to-play-a-specific-frequency-with-javascript
 function playFreq(frequency, duration, counters=null, direction=0) {
     var oscillator = audioCtx.createOscillator();
@@ -44,38 +52,44 @@ function playFreq(frequency, duration, counters=null, direction=0) {
                 playFreq(new_freq, duration, counters);
             } else {
                 bass_test_running = false;
+                set_innerhtml_for_query('.freq_start', '<i data-feather="play" class="icon_up" aria-label="Start Icon"></i>&nbsp;Start Test');
+                feather.replace();
+                
+                // Resetting Counter
+                var new_freq = (counters[1] > 0 ? counters[1] : 600);
+                for (var j = 0; j < counters[0].length; j++) {
+                    if (counters[1]) {
+                        counters[0][j].value = new_freq.toString();
+                    } else {
+                        counters[0][j].innerText = new_freq.toString() + ' Hz';
+                    }
+                }
             }
         }, duration
     );
 }
 
 function start_bass_test(advanced=false) {
-    var start_btns = document.getElementsByClassName('freq_start');
-
     if (bass_test_running) {
         bass_test_running = false;
 
-        for (var j = 0; j < start_btns.length; j++) {
-            start_btns[j].innerHTML = '<i data-feather="play" class="icon_up" aria-label="Start Icon"></i>&nbsp;Start Test';
-        }
+        set_innerhtml_for_query('.freq_start', '<i data-feather="play" class="icon_up" aria-label="Start Icon"></i>&nbsp;Start Test');
         feather.replace();
         return;
     }
 
     bass_test_running = true;
 
-    for (var j = 0; j < start_btns.length; j++) {
-        start_btns[j].innerHTML = '<i data-feather="square" class="icon_up" aria-label="Stop Icon"></i>&nbsp;Stop Test';
-    }
+    set_innerhtml_for_query('.freq_start', '<i data-feather="square" class="icon_up" aria-label="Stop Icon"></i>&nbsp;Stop Test');
     feather.replace();
 
     var counters;
-    if (advanced) { counters = [document.getElementsByClassName('freq_counter_num'), true]; }
-    else          { counters = [document.getElementsByClassName('freq_counter'), false]; }
+    if (advanced) { counters = [document.getElementsByClassName('freq_counter_num'), 1]; }
+    else          { counters = [document.getElementsByClassName('freq_counter'), 0]; }
     
 
     var start_freq = 600;
-    if (advanced) { start_freq = parseInt(counters[0][0].value); }
+    if (advanced) { start_freq = parseInt(counters[0][0].value); counters[1] = start_freq;  }
 
     for (var j = 0; j < counters[0].length; j++) {
         if (counters[1]) {
