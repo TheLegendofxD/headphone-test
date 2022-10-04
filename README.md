@@ -8,4 +8,4 @@ Easily check if your speakers or headphones are working correctly!
 | Desktop | Mobile |
 | --- | --- |
 | ![Screenshot Desktop](https://thelegendofxd.github.io/headphone-test/screenshots/desktop.png) | ![Screenshot Mobile](https://thelegendofxd.github.io/headphone-test/screenshots/mobile0.png) |
-| ![Theming Desktop](https://thelegendofxd.github.io/headphone-test/screenshots/desktop1.png) | | ![Theming Mobile](https://thelegendofxd.github.io/headphone-test/screenshots/mobile1.png)
+| ![Theming Desktop](https://thelegendofxd.github.io/headphone-test/screenshots/desktop1.png) | ![Theming Mobile](https://thelegendofxd.github.io/headphone-test/screenshots/mobile1.png) |
