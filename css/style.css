@@ -273,7 +273,7 @@ body > .content:last-of-type {
     top: 50%;
     translate: -50% -50%;
     max-width: 1000px;
-    max-height: 550px;
+    max-height: 580px;
     width: 95vw;
     height: 80vh;
     border: 2px solid var(--border-color);
@@ -386,7 +386,7 @@ body > .content:last-of-type {
 
 .btns_container > .btns.single-btn > a {
     max-width: 70%;
-    width: 300px;
+    min-width: 300px;
 }
 
 input[type=number] { 
@@ -424,6 +424,18 @@ input[type=number]::-webkit-outer-spin-button {
     background-repeat: repeat;
     mask-size: cover;
     -webkit-mask-size: cover;
+}
+
+.theme_add_image {
+    grid-column: 1 / span 3;
+}
+
+.theme_add_image > div > a {
+    padding-left: 2ch;
+    padding-right: 2ch;
+    margin-bottom: 1rem;
+    white-space: break-spaces;
+    text-align: center;
 }
 
 .hidden {
