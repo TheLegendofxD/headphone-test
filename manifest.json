@@ -5,6 +5,7 @@
     "display": "standalone",
     "background_color": "#34495e",
     "theme_color": "#9b59b6",
+    "start_url": "https://thelegendofxd.github.io/headphone-test/",
     "orientation": "portrait-primary",
     "categories": ["utilities"],
     "description": "Easily check if your speakers or headphones are working correctly!",
