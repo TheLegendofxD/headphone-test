@@ -1,3 +1,5 @@
+const ls_prefix = 'f384b3_';
+
 const audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 const audioPan = audioCtx.createStereoPanner();
 audioPan.connect(audioCtx.destination);
@@ -142,8 +144,8 @@ function get_module_order() {
 
 
     /* Checking If Module Order is Valid */
-    if (localStorage.getItem('module_order') != null) {
-        let temp = localStorage.getItem('module_order').split(',');
+    if (localStorage.getItem(ls_prefix + 'module_order') != null) {
+        let temp = localStorage.getItem(ls_prefix + 'module_order').split(',');
         let new_array = [];
         let success = true;
         
@@ -167,7 +169,7 @@ function set_module_order(_module_order) {
     for (var i = 0; i < _module_order.length; i++) {
         mo_string += _module_order[i].toString() + ',';
     }
-    localStorage.setItem('module_order', mo_string);
+    localStorage.setItem(ls_prefix + 'module_order', mo_string);
 }
 
 function render_modules() {
@@ -224,11 +226,11 @@ render_modules();
 /* Theme */
 const themes = ['', 'midnight', 'autumn', 'lotus', 'watermelon', 'dawn', 'ukraine', 'oled', 'translucent'];
 const theme_prevs = [['Default', '#2c3e50', '#8e44ad'], ['Midnight', '#333a50', '#475ea9'], ['Autumn', '#691825', '#E9724C'], ['Lotus', '#824670', '#3acf9e'], ['Watermelon', '#17694f', '#F79F79'], ['Dawn', '#544f6b', '#AFA2FF'], ['Ukraine', '#1a274c', '#d8a811'], ['OLED', '#000', '#8e44ad'], ['Translucent', '#000000cc', '#8e44ad99']];
-var theme = localStorage.getItem('theme');
+var theme = localStorage.getItem(ls_prefix + 'theme');
 const select_theme_popup = document.getElementById('select_theme_popup');
 
 function apply_theme(theme_name='') {
-    localStorage.setItem('theme', theme_name);
+    localStorage.setItem(ls_prefix + 'theme', theme_name);
     document.body.className = 'theme_' + theme_name;
     theme = theme_name;
 }
@@ -259,6 +261,33 @@ for (var i=0;i<themes.length;i++) {
 }
 document.getElementById('theme_prev-circle-translucent').style.maskImage = "url(\"data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='92.04699' height='87.03743' viewBox='0,0,92.04699,87.03743' style='scale: 99%'><g transform='translate(-193.9765,-136.48129)'><g data-paper-data='{%26quot;isPaintingLayer%26quot;:true}' fill-rule='nonzero' stroke='black' stroke-width='2' stroke-linecap='butt' stroke-linejoin='miter' stroke-miterlimit='10' stroke-dasharray='' stroke-dashoffset='0' style='mix-blend-mode: normal'><path d='M285.0235,180c0,23.48244 -20.15771,42.51871 -45.0235,42.51871c-24.86579,0 -45.02349,-19.03628 -45.02349,-42.51871c0,-23.48244 20.1577,-42.51871 45.0235,-42.51871c24.86579,0 45.0235,19.03628 45.0235,42.51871z' fill='black'/><path d='M284.84918,180c0,10.10826 -3.84035,19.37954 -10.23381,26.61263c-8.22593,9.30621 -73.83289,-49.86681 -64.85545,-57.51971c7.97423,-6.7977 18.58826,-10.944 30.24007,-10.944c24.76952,0 44.84918,18.73737 44.84918,41.85109z' fill='black'/></g></g></svg>\")";
 theme_list.innerHTML += add_image_btn;
+
+// Theme Background Image
+const image_upload_theme_background = document.getElementById('image_upload_theme_background');
+
+function set_background() {
+    document.body.style.backgroundImage = `url('${localStorage.getItem(ls_prefix + 'background')}')`;
+}
+
+function remove_background() {
+    localStorage.setItem(ls_prefix + 'background', '');
+    set_background();
+}
+
+function compress_and_base64ify_image() {
+    if (!this.files || !this.files[0]) return;
+
+    const reader = new FileReader();
+    reader.addEventListener('load', (event) => {
+        localStorage.setItem(ls_prefix + 'background', event.target.result);
+        set_background();
+    });
+    reader.readAsDataURL(this.files[0]);
+}
+
+image_upload_theme_background.addEventListener('change', compress_and_base64ify_image);
+
+set_background();
 
 /* About Popup */
 const about_popup = document.getElementById('about_popup');
@@ -307,4 +336,4 @@ document.getElementById('pwa_install').addEventListener('click', async () => {
     } else if (outcome === 'dismissed') {
       console.log('User dismissed the install prompt');
     }
-  });
+});

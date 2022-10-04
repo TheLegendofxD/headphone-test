@@ -273,7 +273,7 @@ body > .content:last-of-type {
     top: 50%;
     translate: -50% -50%;
     max-width: 1000px;
-    max-height: 580px;
+    max-height: 660px;
     width: 95vw;
     height: 80vh;
     border: 2px solid var(--border-color);
@@ -436,6 +436,10 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 1rem;
     white-space: break-spaces;
     text-align: center;
+}
+
+#image_upload_theme_background {
+    display: none;
 }
 
 .hidden {

@@ -210,7 +210,13 @@
             <div class="theme_list" id="theme_list">
                 <div class="btns_container theme_add_image">
                     <div class="btns single-btn">
-                        <a href="javascript:void(0);">Add Background Image (max. 1.9MB)</a>
+                        <input type="file" id="image_upload_theme_background">
+                        <a href="javascript:document.getElementById('image_upload_theme_background').click();"><i data-feather="image"></i> Add Background Image (max. ~1.4MB+)</a>
+                    </div>
+                </div>
+                <div class="btns_container theme_add_image">
+                    <div class="btns single-btn">
+                        <a href="javascript:remove_background();"><i data-feather="trash-2"></i> Remove Background Image</a>
                     </div>
                 </div>
             </div>
