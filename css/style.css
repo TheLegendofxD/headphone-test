@@ -13,6 +13,7 @@
     --border-color: var(--dark1);
     --content-border-width: 0;
     --theme-prev-circle: black;
+    touch-action: pan-y;
 }
 
 body.theme_midnight {
