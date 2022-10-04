@@ -267,7 +267,8 @@ theme_list.innerHTML += add_image_btn;
 const image_upload_theme_background = document.getElementById('image_upload_theme_background');
 
 function set_background() {
-    document.body.style.backgroundImage = `url('${localStorage.getItem(ls_prefix + 'background')}')`;
+    var image = localStorage.getItem(ls_prefix + 'background')
+    document.body.style.backgroundImage = `url('${(image != null && image != undefined ? image : '')}')`;
 }
 
 function remove_background() {
