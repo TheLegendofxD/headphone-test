@@ -85,6 +85,7 @@ const langs = {
         'opt_addbgimg': 'Ajouter une image d\'arrière-plan',
         'opt_rmbgimg': 'Supprimer l\'image d\'arrière-plan',
         'opt_close': 'Fermer',
+        'opt_update': 'Rechercher les mises à jour',
         'mdl_left': 'Gauche',
         'mdl_both': 'Les Deux',
         'mdl_right': 'Droite',
