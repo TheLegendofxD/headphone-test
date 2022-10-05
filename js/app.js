@@ -68,7 +68,7 @@ const langs = {
         'mdl_startbt': 'Test starten',
         'mdl_stopbt': 'Test stoppen',
         'upd_no': 'Du bist auf dem neusten Stand!',
-        'upd_new': 'Ein neues Update is verfügbar. Möchtest du es installieren?',
+        'upd_new': 'Ein neues Update ist verfügbar. Möchtest du es installieren?',
     },
     'fr':{
         'title_stereotest': 'Test Stéréo',
