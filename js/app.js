@@ -440,11 +440,18 @@ document.getElementById('version_string').innerText = `${version[1]} (${version[
 document.getElementById('builddate_string').innerText = version[2];
 
 /* Register ServiveWorker */
+var registration;
+
+function set_serviceworker(regis) {
+    console.log("service worker registered")
+    registration = regis;
+}
+
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
         navigator.serviceWorker
         .register("https://thelegendofxd.github.io/headphone-test/serviceWorker.js")
-        .then(res => console.log("service worker registered"))
+        .then(res => set_serviceworker(res))
         .catch(err => console.log("service worker not registered", err))
     })
 }
