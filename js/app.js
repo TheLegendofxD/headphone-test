@@ -38,6 +38,8 @@ const langs = {
         'mdl_freq': 'Frequency',
         'mdl_startbt': 'Start Test',
         'mdl_stopbt': 'Stop Test',
+        'upd_no': 'You\'re up to date!',
+        'upd_new': 'There is an Update available. Do you want to install it?',
     },
     'de':{
         'title_stereotest': 'Stereo-Test',
@@ -65,6 +67,8 @@ const langs = {
         'mdl_freq': 'Frequenz',
         'mdl_startbt': 'Test starten',
         'mdl_stopbt': 'Test stoppen',
+        'upd_no': 'Du bist auf dem neusten Stand!',
+        'upd_new': 'Ein neues Update is verfügbar. Möchtest du es installieren?',
     },
     'fr':{
         'title_stereotest': 'Test Stéréo',
@@ -92,6 +96,8 @@ const langs = {
         'mdl_freq': 'Fréquence',
         'mdl_startbt': 'Démarrer le Test',
         'mdl_stopbt': 'Arrêter le Test',
+        'upd_no': 'Vous êtes à jour !',
+        'upd_new': 'Une mise à jour est disponible. Voulez-vous l\'installer ?'
     },
 };
 
@@ -489,13 +495,13 @@ document.getElementById('pwa_install').addEventListener('click', async () => {
 /* Updates */
 function process_update_json(data) {
     if (data.version > version[0]) {
-        var result = confirm('There is an Update available. Do you want to install it?');
+        var result = confirm(get_string('upd_new'));
         if (result) {
             registration.unregister();
             window.location.reload();
         }
     } else {
-        alert('You\'re up to date');
+        alert(get_string('upd_no'));
     };
 }
 
