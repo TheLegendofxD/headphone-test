@@ -31,6 +31,7 @@ body.theme_autumn {
     --light2: #E9724C;
     --shadow: #1a0d0d;
     --border-color: var(--dark1);
+    --theme-prev-circle: white;
 }
 
 body.theme_lotus {
@@ -69,6 +70,7 @@ body.theme_ukraine {
     --light2: var(--title);
     --btn-text: var(--dark1);
     --border-color: var(--dark1);
+    --theme-prev-circle: white;
 }
 
 body.theme_oled {
