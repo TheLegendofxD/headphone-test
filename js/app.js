@@ -8,7 +8,7 @@ var bass_test_running = false;
 
 /* Languages */
 var lang = localStorage.getItem(ls_prefix + 'lang');
-const lang_codes = ['en','de'];
+const lang_codes = ['en','de','fr'];
 /* https://www.microsoft.com/Language */
 const langs = {
     'en':{
@@ -75,7 +75,7 @@ const langs = {
         'opt_skip1': 'Passer au Test des Basses (Appuyer sur Entrée)',
         'opt_install': 'Installer la PWA',
         'opt_addbgimg': 'Ajouter une image d\'arrière-plan',
-        'opt_rmbgimg': ' 	Supprimer l\'image d\'arrière-plan',
+        'opt_rmbgimg': 'Supprimer l\'image d\'arrière-plan',
         'mdl_left': 'Gauche',
         'mdl_both': 'Les Deux',
         'mdl_right': 'Droite',
