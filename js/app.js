@@ -95,6 +95,10 @@ const langs = {
     },
 };
 
+function get_string(key) {
+    return langs[lang][key];
+}
+
 function get_lang_from_browser() {
     lang = navigator.language || navigator.userLanguage;
     if (lang != null && lang != undefined && lang != '') {
@@ -118,7 +122,7 @@ function localize() {
     const objs = document.querySelectorAll('.localize');
 
     for (var i=0;i<objs.length;i++) {
-        objs[i].innerText = langs[lang][objs[i].id];
+        objs[i].innerText = get_string(objs[i].id);
     }
 }
 const select_langs_popup = document.getElementById('select_langs_popup');
