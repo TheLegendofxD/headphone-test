@@ -1,5 +1,5 @@
 const ls_prefix = 'f384b3_';
-const version = [12, '1.2-release', '05/10/22'];
+const version = [13, '1.3-release', '05/10/22'];
 
 const audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 const audioPan = audioCtx.createStereoPanner();
