@@ -479,8 +479,10 @@ document.getElementById('pwa_install').addEventListener('click', async () => {
 function process_update_json(data) {
     if (data.version > version[0]) {
         var result = confirm('There is an Update available. Do you want to install it?');
-        registration.unregister();
-        window.location.reload();
+        if (result) {
+            registration.unregister();
+            window.location.reload();
+        }
     } else {
         alert('You\'re up to date');
     };
