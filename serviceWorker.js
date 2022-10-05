@@ -17,11 +17,16 @@ const assets = [
 ];
 
 self.addEventListener("install", installEvent => {
-    installEvent.waitUntil(
+    installEvent.waitUntil( function() {
+        caches.keys().then(function(names) {
+            for (let name of names) {
+                caches.delete(name);
+            }
+        })
         caches.open(cacheName).then(cache => {
             return cache.addAll(assets);
         })
-    );
+    });
 });
 
 self.addEventListener("activate", event => {
@@ -40,7 +45,10 @@ self.addEventListener("activate", event => {
 })
 
 self.addEventListener("fetch", fetchEvent => {
-    console.log(fetchEvent.request);
+    const url = new URL(fetchEvent.request.url);
+    if (url.pathname == '/headphone-tester/update.json') {
+        fetchEvent.respondWith(fetch(fetchEvent.request));
+    }
     fetchEvent.respondWith(
         caches.open(cacheName).then(cache => {
             return cache.match(fetchEvent.request).then(res => {

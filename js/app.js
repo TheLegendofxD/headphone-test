@@ -1,4 +1,5 @@
 const ls_prefix = 'f384b3_';
+const version = [12, '1.2-release', '05/10/22'];
 
 const audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 const audioPan = audioCtx.createStereoPanner();
@@ -30,7 +31,7 @@ const langs = {
         'opt_addbgimg': 'Add Background Image',
         'opt_rmbgimg': 'Remove Background Image',
         'opt_close': 'Close',
-        'opt_update': 'Update',
+        'opt_update': 'Check for Updates',
         'mdl_left': 'Left',
         'mdl_both': 'Both',
         'mdl_right': 'Right',
@@ -57,6 +58,7 @@ const langs = {
         'opt_addbgimg': 'Hintergrundbild hinzufügen',
         'opt_rmbgimg': 'Hintergrundbild entfernen',
         'opt_close': 'Schließen',
+        'opt_update': 'Nach Updates prüfen',
         'mdl_left': 'Links',
         'mdl_both': 'Beide',
         'mdl_right': 'Rechts',
@@ -433,6 +435,9 @@ function open_about() {
     }
 }
 
+document.getElementById('version_string').innerText = `${version[1]} (${version[0]})`;
+document.getElementById('builddate_string').innerText = version[2];
+
 /* Register ServiveWorker */
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
@@ -468,3 +473,24 @@ document.getElementById('pwa_install').addEventListener('click', async () => {
       console.log('User dismissed the install prompt');
     }
 });
+
+/* Updates */
+function process_update_json(data) {
+    if (data.version > version[0]) {
+        var result = confirm('There is an Update available. Do you want to install it?');
+        registration.unregister();
+        window.location.reload();
+    } else {
+        alert('You\'re up to date');
+    };
+}
+
+function check_updates() {
+    fetch('update.json').then(function (response) {
+        return response.json();
+    }).then(function (myJson) {
+        process_update_json(myJson);
+    }).catch(function (error) {
+        alert('Update Error: ' + error);
+    });
+}
