@@ -30,6 +30,7 @@ const langs = {
         'opt_addbgimg': 'Add Background Image',
         'opt_rmbgimg': 'Remove Background Image',
         'opt_close': 'Close',
+        'opt_update': 'Update',
         'mdl_left': 'Left',
         'mdl_both': 'Both',
         'mdl_right': 'Right',

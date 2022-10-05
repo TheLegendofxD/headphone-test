@@ -40,6 +40,7 @@ self.addEventListener("activate", event => {
 })
 
 self.addEventListener("fetch", fetchEvent => {
+    console.log(fetchEvent.request);
     fetchEvent.respondWith(
         caches.open(cacheName).then(cache => {
             return cache.match(fetchEvent.request).then(res => {
