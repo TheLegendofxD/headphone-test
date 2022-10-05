@@ -6,6 +6,86 @@ audioPan.connect(audioCtx.destination);
 
 var bass_test_running = false;
 
+/* Languages */
+var lang = localStorage.getItem(ls_prefix + 'lang');
+const lang_codes = ['en','de'];
+const langs = {
+    'en':{
+        'title_stereotest': 'Stereo Test',
+        'title_basstest': 'Bass Test',
+        'title_basstestadv': 'Bass Test (Advanced)',
+        'title_basstestadv_short': 'Bass Test (Adv.)',
+        'title_search': 'Search',
+        'title_theme': 'Themes',
+        'title_about': 'About',
+        'title_addmdl': 'Add Module',
+        'opt_moveup': 'Move Up',
+        'opt_movedown': 'Move Down',
+        'opt_remove': 'Remove',
+        'opt_skip0': 'Skip to Stereo Test (Press Enter)',
+        'opt_skip1': 'Skip to Bass Test (Press Enter)',
+        'opt_install': 'Install PWA',
+        'opt_addbgimg': 'Add Background Image',
+        'opt_rmbgimg': 'Remove Background Image',
+        'mdl_left': 'Left',
+        'mdl_both': 'Both',
+        'mdl_right': 'Right',
+        'mdl_freq': 'Frequency',
+        'mdl_startbt': 'Start Test',
+        'mdl_stopbt': 'Stop Test',
+    },
+    'de': {
+        'title_stereotest': 'Stereo-Test',
+        'title_basstest': 'Bass-Test',
+        'title_basstestadv': 'Bass-Test (Experte)',
+        'title_basstestadv_short': 'Bass-Test (Exp.)',
+        'title_search': 'Suche',
+        'title_theme': 'Farbschemata',
+        'title_about': 'Über',
+        'title_addmdl': 'Modul hinzufügen',
+        'opt_moveup': 'Nach Oben',
+        'opt_movedown': 'Nach Unten',
+        'opt_remove': 'Entfernen',
+        'opt_skip0': 'Springe zum Stereo-Test (Drücke Enter)',
+        'opt_skip1': 'Springe zum Bass-Test (Drücke Enter)',
+        'opt_install': 'PWA installieren',
+        'opt_addbgimg': 'Hintergrundbild hinzufügen',
+        'opt_rmbgimg': 'Hintergrundbild entfernen',
+        'mdl_left': 'Links',
+        'mdl_both': 'Beide',
+        'mdl_right': 'Rechts',
+        'mdl_freq': 'Frequenz',
+        'mdl_startbt': 'Test starten',
+        'mdl_stopbt': 'Test stoppen',
+    }
+};
+
+function get_lang_from_browser() {
+    lang = navigator.language || navigator.userLanguage;
+    if (lang != null && lang != undefined && lang != '') {
+        if (lang_codes.indexOf(lang) < 0) {
+            lang = 'en';
+        }
+    } else {
+        lang = 'en';
+    }
+}
+
+if (lang != null && lang != undefined && lang != '') {
+    if (lang_codes.indexOf(lang) < 0) {
+        get_lang_from_browser();
+    }
+} else {
+    get_lang_from_browser();
+}
+
+function localize() {
+    const objs = document.querySelectorAll('.localize');
+
+    for (var i=0;i<objs.length;i++) {
+        objs[i].innerText = langs[lang][objs[i].id];
+    }
+}
 
 /* Module: Stereo Test */
 function play_beep(direction = 'both') {
@@ -17,11 +97,12 @@ function play_beep(direction = 'both') {
 }
 
 /* Module: Bass Test */
-function set_innerhtml_for_query(query, new_html) {
+function set_visible_for_query(query, value) {
     var elems = document.querySelectorAll(query);
 
     for (var i=0;i<elems.length;i++) {
-        elems[i].innerHTML = new_html;
+        if (value) { elems[i].classList.add('hidden'); }
+        else       { elems[i].classList.remove('hidden'); }
     }
 }
 
@@ -54,8 +135,8 @@ function playFreq(frequency, duration, counters=null, direction=0) {
                 playFreq(new_freq, duration, counters);
             } else {
                 bass_test_running = false;
-                set_innerhtml_for_query('.freq_start', '<i data-feather="play" class="icon_up" aria-label="Start Icon"></i>&nbsp;Start Test');
-                feather.replace();
+                set_visible_for_query('.freq_start', false);
+                set_visible_for_query('.freq_start.stop', true);
                 
                 // Resetting Counter
                 var new_freq = (counters[1] > 0 ? counters[1] : 600);
@@ -75,15 +156,15 @@ function start_bass_test(advanced=false) {
     if (bass_test_running) {
         bass_test_running = false;
 
-        set_innerhtml_for_query('.freq_start', '<i data-feather="play" class="icon_up" aria-label="Start Icon"></i>&nbsp;Start Test');
-        feather.replace();
+        set_visible_for_query('.freq_start', false);
+        set_visible_for_query('.freq_start.stop', true);
         return;
     }
 
     bass_test_running = true;
 
-    set_innerhtml_for_query('.freq_start', '<i data-feather="square" class="icon_up" aria-label="Stop Icon"></i>&nbsp;Stop Test');
-    feather.replace();
+    set_visible_for_query('.freq_start', true);
+    set_visible_for_query('.freq_start.stop', false);
 
     var counters;
     if (advanced) { counters = [document.getElementsByClassName('freq_counter_num'), 1]; }
@@ -190,6 +271,7 @@ function render_modules() {
     }
 
     feather.replace();
+    localize();
 }
 
 function move_module(display_id, type_id, action) {
@@ -288,7 +370,6 @@ function compress_and_base64ify_image() {
 }
 
 image_upload_theme_background.addEventListener('change', compress_and_base64ify_image);
-
 set_background();
 
 /* About Popup */
