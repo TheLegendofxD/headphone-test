@@ -9,6 +9,7 @@ var bass_test_running = false;
 /* Languages */
 var lang = localStorage.getItem(ls_prefix + 'lang');
 const lang_codes = ['en','de'];
+/* https://www.microsoft.com/Language */
 const langs = {
     'en':{
         'title_stereotest': 'Stereo Test',
@@ -34,7 +35,7 @@ const langs = {
         'mdl_startbt': 'Start Test',
         'mdl_stopbt': 'Stop Test',
     },
-    'de': {
+    'de':{
         'title_stereotest': 'Stereo-Test',
         'title_basstest': 'Bass-Test',
         'title_basstestadv': 'Bass-Test (Experte)',
@@ -57,7 +58,31 @@ const langs = {
         'mdl_freq': 'Frequenz',
         'mdl_startbt': 'Test starten',
         'mdl_stopbt': 'Test stoppen',
-    }
+    },
+    'fr':{
+        'title_stereotest': 'Test Stéréo',
+        'title_basstest': 'Test de Basse',
+        'title_basstestadv': 'Test de Basse (Avancé)',
+        'title_basstestadv_short': 'Test de Basse (Ava.)',
+        'title_search': 'Rechercher',
+        'title_theme': 'Thèmes',
+        'title_about': 'Informations',
+        'title_addmdl': 'Ajouter un module',
+        'opt_moveup': 'Monter',
+        'opt_movedown': 'Descendre',
+        'opt_remove': 'Supprimer',
+        'opt_skip0': 'Passer au Test Stéréo (Appuyer sur Entrée)',
+        'opt_skip1': 'Passer au Test des Basses (Appuyer sur Entrée)',
+        'opt_install': 'Installer la PWA',
+        'opt_addbgimg': 'Ajouter une image d\'arrière-plan',
+        'opt_rmbgimg': ' 	Supprimer l\'image d\'arrière-plan',
+        'mdl_left': 'Gauche',
+        'mdl_both': 'Les Deux',
+        'mdl_right': 'Droite',
+        'mdl_freq': 'Fréquence',
+        'mdl_startbt': 'Démarrer le Test',
+        'mdl_stopbt': 'Arrêter le Test',
+    },
 };
 
 function get_lang_from_browser() {
