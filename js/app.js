@@ -19,6 +19,7 @@ const langs = {
         'title_search': 'Search',
         'title_theme': 'Themes',
         'title_about': 'About',
+        'title_langs': 'Languages',
         'title_addmdl': 'Add Module',
         'opt_moveup': 'Move Up',
         'opt_movedown': 'Move Down',
@@ -28,6 +29,7 @@ const langs = {
         'opt_install': 'Install PWA',
         'opt_addbgimg': 'Add Background Image',
         'opt_rmbgimg': 'Remove Background Image',
+        'opt_close': 'Close',
         'mdl_left': 'Left',
         'mdl_both': 'Both',
         'mdl_right': 'Right',
@@ -43,6 +45,7 @@ const langs = {
         'title_search': 'Suche',
         'title_theme': 'Farbschemata',
         'title_about': 'Über',
+        'title_langs': 'Sprachen',
         'title_addmdl': 'Modul hinzufügen',
         'opt_moveup': 'Nach Oben',
         'opt_movedown': 'Nach Unten',
@@ -52,6 +55,7 @@ const langs = {
         'opt_install': 'PWA installieren',
         'opt_addbgimg': 'Hintergrundbild hinzufügen',
         'opt_rmbgimg': 'Hintergrundbild entfernen',
+        'opt_close': 'Schließen',
         'mdl_left': 'Links',
         'mdl_both': 'Beide',
         'mdl_right': 'Rechts',
@@ -67,6 +71,7 @@ const langs = {
         'title_search': 'Rechercher',
         'title_theme': 'Thèmes',
         'title_about': 'Informations',
+        'title_langs': 'Langues',
         'title_addmdl': 'Ajouter un module',
         'opt_moveup': 'Monter',
         'opt_movedown': 'Descendre',
@@ -76,6 +81,7 @@ const langs = {
         'opt_install': 'Installer la PWA',
         'opt_addbgimg': 'Ajouter une image d\'arrière-plan',
         'opt_rmbgimg': 'Supprimer l\'image d\'arrière-plan',
+        'opt_close': 'Fermer',
         'mdl_left': 'Gauche',
         'mdl_both': 'Les Deux',
         'mdl_right': 'Droite',
@@ -110,6 +116,22 @@ function localize() {
     for (var i=0;i<objs.length;i++) {
         objs[i].innerText = langs[lang][objs[i].id];
     }
+}
+const select_langs_popup = document.getElementById('select_langs_popup');
+function open_langs_selector() {
+    select_langs_popup.classList.toggle('force-active');
+    
+    if (select_langs_popup.classList.contains('force-active')) {
+        document.getElementById('popup-select-langs-x').focus();
+    } else {
+        document.getElementById('popup-select-langs-open').focus();
+    }
+}
+
+function set_lang(code) {
+    lang = code;
+    localStorage.setItem(ls_prefix + 'lang', lang);
+    localize();
 }
 
 /* Module: Stereo Test */

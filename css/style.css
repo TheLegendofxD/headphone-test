@@ -315,8 +315,22 @@ body > .content:last-of-type {
 }
 
 .dropdown > .dropdown-content.centered {
-    right: 50%;
-    transform: translateX(50%);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dropdown > .dropdown-content.y-centered {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.dropdown > .dropdown-content.y-centered.centered {
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.dropdown > .dropdown-content.fixed {
+    position: fixed;
 }
 
 .dropdown > .dropdown-content > a {
@@ -341,7 +355,8 @@ body > .content:last-of-type {
     transform: translateY(-.2rem);
 }
 
-.dropdown:focus-within > .dropdown-content  {
+.dropdown:not(.no-focus-method):focus-within > .dropdown-content,
+.dropdown.force-active > .dropdown-content  {
     display: block;
 }
 

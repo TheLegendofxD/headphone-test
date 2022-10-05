@@ -164,6 +164,7 @@
             <a href="javascript:void(0);"><i data-feather="menu" aria-label="Application Menu"></i></a>
             <div class="dropdown-content">
                 <a href="javascript:open_theme_selector();" id="popup-select-theme-open"><i data-feather="droplet" class="d_icon"></i> <span class="localize" id="title_theme">Themes</span></a>
+                <a href="javascript:open_langs_selector();" id="popup-select-langs-open"><i data-feather="globe" class="d_icon"></i> <span class="localize" id="title_langs">Languages</span></a>
                 <a href="#" class="hidden" id="pwa_install"><i data-feather="download" class="d_icon"></i> <span class="localize" id="opt_install">Install PWA</span></a>
                 <a href="javascript:open_about();" id="popup-about-open"><i data-feather="info" class="d_icon"></i> <span class="localize" id="title_about">About</span></a>
             </div>
@@ -239,6 +240,14 @@
                 <var>Theme:</var> <b id="about_theme">default</b><br>
                 <var>User Agent:</var> <b id="about_user_agent"></b>
             </p>
+        </div>
+    </div>
+    <div class="dropdown no-focus-method" id="select_langs_popup">
+        <div class="dropdown-content fixed centered y-centered">
+            <a href="javascript:set_lang('de');">Deutsch</a>
+            <a href="javascript:set_lang('en');">English</a>
+            <a href="javascript:set_lang('fr');">Français</a>
+            <a href="javascript:open_langs_selector()" id="popup-select-langs-x"><i data-feather="x" class="red d_icon icon"></i><span class="localize" id="opt_close">Close</span></a>
         </div>
     </div>
 </body>
