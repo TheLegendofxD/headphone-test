@@ -87,6 +87,7 @@ body.th_mod_oled {
     --border-color: #111;
     --content-border-width: 1px;
     --theme-prev-circle: white;
+    --on-light: var(--white);
 }
 
 body.th_mod_translucent {
@@ -97,6 +98,7 @@ body.th_mod_translucent {
     --border-color: #111;
     --content-border-width: 1px;
     --theme-prev-circle: white;
+    --on-light: var(--white);
 }
 
 body {
