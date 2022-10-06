@@ -13,6 +13,7 @@
     --border-color: var(--dark1);
     --content-border-width: 0;
     --theme-prev-circle: black;
+    --transparent-light2: #8e44adcc;
     touch-action: pan-y;
 }
 
@@ -22,6 +23,7 @@ body.theme_midnight {
     --title:  #92a3dd;
     --light2: #475ea9;
     --border-color: var(--dark1);
+    --transparent-light2: #475ea9cc;
 }
 
 body.theme_autumn {
@@ -32,6 +34,7 @@ body.theme_autumn {
     --shadow: #1a0d0d;
     --border-color: var(--dark1);
     --theme-prev-circle: white;
+    --transparent-light2: #E9724Ccc;
 }
 
 body.theme_lotus {
@@ -41,6 +44,7 @@ body.theme_lotus {
     --light2: #3acf9e;
     --btn-text: var(--dark1);
     --border-color: var(--dark1);
+    --transparent-light2: #3acf9ecc;
 }
 
 body.theme_watermelon {
@@ -52,6 +56,7 @@ body.theme_watermelon {
     --on-light: var(--dark1);
     --red: #ff3300;
     --border-color: var(--dark1);
+    --transparent-light2: #F79F79cc;
 }
 
 body.theme_dawn {
@@ -61,6 +66,7 @@ body.theme_dawn {
     --light2: #AFA2FF;
     --btn-text: var(--dark1);
     --border-color: var(--dark1);
+    --transparent-light2: #AFA2FFcc;
 }
 
 body.theme_ukraine {
@@ -71,9 +77,10 @@ body.theme_ukraine {
     --btn-text: var(--dark1);
     --border-color: var(--dark1);
     --theme-prev-circle: white;
+    --transparent-light2: #d8a811cc;
 }
 
-body.theme_oled {
+body.th_mod_oled {
     --dark1: #000;
     --dark2: #000;
     --shadow: #000;
@@ -82,10 +89,10 @@ body.theme_oled {
     --theme-prev-circle: white;
 }
 
-body.theme_translucent {
+body.th_mod_translucent {
     --dark1: #00000099;
     --dark2: #000000cc;
-    --light2: #8e44adcc;
+    --light2: var(--transparent-light2);
     --shadow: #000;
     --border-color: #111;
     --content-border-width: 1px;
