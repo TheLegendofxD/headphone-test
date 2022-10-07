@@ -9,6 +9,7 @@ var bass_test_running = false;
 
 /* Languages */
 var lang = localStorage.getItem(ls_prefix + 'lang');
+var lang_source = 'ls';
 const lang_codes = ['en','de','fr'];
 /* https://www.microsoft.com/Language */
 const langs = {
@@ -106,13 +107,16 @@ function get_string(key) {
 }
 
 function get_lang_from_browser() {
+    lang_source = 'nav';
     lang = navigator.language || navigator.userLanguage;
     if (lang != null && lang != undefined && lang != '') {
         if (lang_codes.indexOf(lang) < 0) {
             lang = 'en';
+            lang_source = 'fallback';
         }
     } else {
         lang = 'en';
+        lang_source = 'fallback';
     }
 }
 
@@ -452,12 +456,20 @@ image_upload_theme_background.addEventListener('change', compress_and_base64ify_
 set_background();
 
 /* About Popup */
+function getUsedLocalStorageSpace() { 
+    return Object.keys(window.localStorage).map(function(key) { return localStorage[key].length;}).reduce(function(a,b) { return a+b;}); 
+};
+
 const about_popup = document.getElementById('about_popup');
 function open_about() {
     about_popup.classList.toggle('active');
     
     if (about_popup.classList.contains('active')) {
         document.getElementById('about_theme').innerText = (theme == '' ? 'default': theme);
+        document.getElementById('about_theme_ext').innerText = (document.body.classList == '' ? 'None': document.body.classList);
+        document.getElementById('about_lang').innerText = `${lang}; source:${lang_source}`;
+        document.getElementById('about_lsusage').innerText = (getUsedLocalStorageSpace()/1024).toFixed().toString() + ' KB';
+        document.getElementById('about_viewport').innerText = `${document.documentElement.clientWidth}x${document.documentElement.clientHeight}`;
         document.getElementById('popup-about-x').focus();
     } else {
         document.getElementById('popup-about-open').focus();
