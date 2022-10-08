@@ -337,6 +337,14 @@ function render_modules() {
 
     feather.replace();
     localize();
+    
+    /* Added Tabindex for Safari */
+    const a_tags = document.getElementsByTagName('a');
+    var ti = 1;
+    for (elem of a_tags) {
+        elem.tabIndex = ti;
+        ti += 1;
+    }
 }
 
 function move_module(display_id, type_id, action) {
