@@ -469,7 +469,7 @@ function open_about() {
         document.getElementById('about_theme_ext').innerText = (document.body.classList == '' ? 'None': document.body.classList);
         document.getElementById('about_lang').innerText = `${lang}; source:${lang_source}`;
         var used_ls = (getUsedLocalStorageSpace()/1024).toFixed();
-        document.getElementById('about_lsusage').innerText = used_ls.toString() + ' KB';
+        document.getElementById('about_lsusage').innerText = used_ls.toString() + ' KiB';
         document.getElementById('about_lsusage').className = used_ls < 1024 ? '' : used_ls < 1600 ? 'yellow' : used_ls < 1800 ? 'orange' : 'red';
         document.getElementById('about_viewport').innerText = `${document.documentElement.clientWidth}x${document.documentElement.clientHeight}`;
         document.getElementById('popup-about-x').focus();
