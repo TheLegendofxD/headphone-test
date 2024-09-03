@@ -68,7 +68,7 @@ const langs = {
         'mdl_freq': 'Frequenz',
         'mdl_startbt': 'Test starten',
         'mdl_stopbt': 'Test beenden',
-        'upd_no': 'Du bist auf dem neusten Stand!',
+        'upd_no': 'Du bist auf dem neuesten Stand!',
         'upd_new': 'Es ist ein Update verfügbar. Möchtest du es installieren?',
     },
     'fr':{
